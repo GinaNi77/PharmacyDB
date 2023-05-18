@@ -73,12 +73,11 @@ while True:  # циклическое выполнение действий
             print(err)
 
     elif Code == 6:  # отображение данных о продаже
-        QuerySales = "SELECT * FROM Sales"
+        QuerySales = "SELECT * FROM soled_products"
         try:
             cursor1.execute(QuerySales)
-            for (Sale_ID, Customer_ID, Employee_ID, Product_ID, Amount, SaleDate, Quantity) in cursor1:
-                print('{} {} {} {} {} {} {}'.format(Sale_ID, Customer_ID,
-                      Employee_ID, Product_ID, Amount, SaleDate, Quantity))
+            for (Sale_ID, CustomerFirstName, CustomerLastName, ProductName, EmployeeFirstName, EmployeeLastName, Price, SaleDate, Quantity) in cursor1:
+                print('{} - {} {} {} {} {} {} {} {}'.format(Sale_ID, CustomerFirstName, CustomerLastName, ProductName, EmployeeFirstName, EmployeeLastName, Price, SaleDate, Quantity))
         except Error as err:
             print(err)
 
